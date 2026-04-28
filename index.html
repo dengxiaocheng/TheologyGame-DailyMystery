@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常之谜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <div id="ui-overlay">
+    <div class="time-display" id="timeDisplay"></div>
+    <div class="gaze-indicator" id="gazeIndicator">凝视模式</div>
+    <div class="dialog-box" id="dialogBox">
+      <p id="dialogText"></p>
+    </div>
+    <div class="choice-menu" id="choiceMenu"></div>
+    <div class="reflection-overlay" id="reflectionOverlay"></div>
+    <div class="narration-box" id="narrationBox">
+      <p id="narrationText"></p>
+    </div>
+    <div class="exit-menu" id="exitMenu"></div>
+  </div>
+
+  <script src="js/data-events.js"></script>
+  <script src="js/time-system.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/npc-system.js"></script>
+  <script src="js/observation-mode.js"></script>
+  <script src="js/map-system.js"></script>
+  <script src="js/event-system.js"></script>
+  <script src="js/reflection-system.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
