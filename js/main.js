@@ -148,6 +148,9 @@
     // Expose event check for touch handlers
     window._isInEvent = function () { return gameState === 'event'; };
 
+    // Expose endDay for special exit target
+    window._endDay = endDay;
+
     // Start
     startGame();
     lastTime = performance.now();
@@ -353,6 +356,21 @@
     // Check day over
     if (gameState === 'playing' && window.timeSystem.isDayOver()) {
       endDay();
+    }
+
+    // Safety net: if playing in night_room with no exits shown and no narration, show the exit
+    if (gameState === 'playing' && window.player.getLocation() === 'night_room') {
+      var exitsVisible = window.ui.areExitsVisible && window.ui.areExitsVisible();
+      var narrVisible = window.ui.isNarrationVisible && window.ui.isNarrationVisible();
+      if (!exitsVisible && !narrVisible && !window.eventSystem.isEventActive()) {
+        var nightExits = window.gameMap.getAvailableExits();
+        if (nightExits.length > 0) {
+          window.ui.showExits(nightExits);
+        } else {
+          // No exits at all — force end day
+          endDay();
+        }
+      }
     }
 
     requestAnimationFrame(gameLoop);

@@ -296,6 +296,10 @@
     }, 300);
   };
 
+  UI.prototype.isNarrationVisible = function () {
+    return this.narrationBox.style.display === 'block';
+  };
+
   /* ---- Dialog ---- */
 
   UI.prototype.showDialog = function (speaker, text) {

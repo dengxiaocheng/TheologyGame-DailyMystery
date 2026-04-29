@@ -50,7 +50,7 @@
       night_room: {
         name: '夜晚房间',
         periods: ['night'],
-        exits: []
+        exits: [{ key: 'S', label: '结束一天', target: '__end_day__' }]
       }
     };
 
@@ -69,6 +69,12 @@
   };
 
   GameMap.prototype.changeLocation = function (id) {
+    // Special: end the day
+    if (id === '__end_day__') {
+      window.ui.hideExits();
+      if (window._endDay) window._endDay();
+      return true;
+    }
     if (!this.locations[id]) return false;
     var period = window.timeSystem.getPeriod();
     if (!this.isLocationAccessible(id, period)) return false;
