@@ -2,13 +2,16 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>日常之谜</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="gameCanvas"></canvas>
   <div id="ui-overlay">
+    <div class="touch-action-bar" id="touchActionBar">
+      <button class="touch-btn" id="btnObserve" data-action="observe" title="凝视">👁</button>
+    </div>
     <div class="time-display" id="timeDisplay"></div>
     <div class="gaze-indicator" id="gazeIndicator">凝视模式</div>
     <div class="dialog-box" id="dialogBox">
